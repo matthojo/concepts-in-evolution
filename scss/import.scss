@@ -1,0 +1,27 @@
+/*!
+ * Bootstrap v2.0.4
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Mixin for gradients is also added from gradients.app for Mac.
+ */
+
+// Core variables and mixins
+@import "variables"; // Modify this for custom colors, font-sizes, etc
+@import "mixins";
+
+// CSS Reset
+@import "reset";
+
+// Base CSS
+@import "typography";
+@import "forms";
+@import "buttons";
+@import "smoke";
+@import "alert";
+
+@import "tooltip";
+
+@import "utilities"; // Has to be last to override when necessary

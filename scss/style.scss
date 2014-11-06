@@ -1,0 +1,306 @@
+@import "import";
+
+html {
+  height: 100%;
+  width: 100%;
+
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: $baseFontFamily;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    color: $textColor;
+    cursor: url("../img/cursor.png"), auto;
+
+    // Links
+    // -----
+
+    a {
+      color: $linkColor;
+      text-decoration: none;
+    }
+    a:hover {
+      color: $linkColorHover;
+      text-decoration: underline;
+    }
+
+    div:-webkit-full-screen {
+      width: 100% !important;
+    }
+    div:-moz-full-screen {
+      width: 100% !important;
+    }
+    :-webkit-full-screen .tohide {
+      display: none; /* While in fullscreen, hide any children with class 'tohide' */
+    }
+    :-moz-full-screen .tohide {
+      display: none; /* While in fullscreen, hide any children with class 'tohide' */
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 0;
+      
+      &.mainTitle{
+	      color: #FFF;
+	      text-shadow: 0px 1px 0px black;
+	      text-align: center;
+	      font-weight: bold;
+      }
+
+      h1{
+        font-family: 'Lobster', $sansFontFamily;
+        font-size: 40px;
+        font-weight: normal;
+        text-shadow:-1px -1px 1px rgba(255,255,255,0.2), /* top-left */
+        1px 1px 1px rgba(255,255,255,0.2), /* bottom-right */
+        1px 1px 1px rgba(0,0,0,0.7); /* shadow */
+      }
+
+      small{
+        font-family: $sansFontFamily;
+        display: block;
+        margin-top: 8px;
+        font-size: 10px;
+      }
+    }
+
+    .container{
+      display: none;
+    }
+    .blueGradient {
+      background-color: #2ebce3;
+      @include gradient(linear, top, rgb(46, 188, 227), rgb(0, 146, 242), 'left top, left bottom');
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0, StartColorStr = '#2ebce3', EndColorStr = '#0092f2');
+      border-top: 1px #2FC9FF solid;
+      border-bottom: 1px #0971A9 solid;
+      color: #FFF;
+    }
+
+    .canvas{
+      position: absolute;
+    }
+    #mainCanvas {
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #254063;
+      z-index: 0;
+    }
+    .shadow{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    /*background-color: #fdfffc;*/
+      @include insetBoxShadow(0,0,80px,0,rgba(0,0,0,0.4));
+
+    }
+    #browser_support{
+      display: none;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 18px;
+
+      a{
+        color: rgb(253, 120, 33);
+      }
+    }
+    .tooYoung{
+      width: 400px;
+      margin: 0 auto;
+    }
+    .nameForm, .welcome_text{
+      width: 500px;
+      margin: 0 auto;
+      margin-top: 40px;
+    }
+    .welcome_text{
+      color: white;
+      border-radius: 5px;
+      background: #008CD0;
+      padding: 10px;
+      text-align: center;
+      border-top: 1px solid #03A1EE;
+      margin-bottom: 40px;
+      p{
+        word-wrap: break-word;
+        text-align: left;
+      }
+    }
+    #help {
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0px;
+      overflow-x: hidden;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+
+      .content {
+        margin: 20px 40px;
+        color: #FFFFFF;
+
+        h1 {
+          margin-bottom: 4px;
+        }
+      }
+    }
+    
+    .fullSplash{
+	    width: 100%;
+	    height: 100%;
+	    top:0;
+	    left:0;
+	    margin: 0;
+	    z-index: 9999;
+	    background: rgba(0,0,0,0.5);
+	    color: #FFF;
+	    display: none;
+	    position: absolute;
+	    top:0;
+	    left: 0;
+	    
+	    .info{
+		    width: 450px;
+		    @include center-block();
+		    margin-top: 80px;
+            text-align: center;
+		    
+		    h1{
+			    text-align: center;
+		    }
+		    
+		    ul{
+			    list-style-type: none;
+			    margin-top: 40px;
+                text-align: left;
+			    
+			    li{
+				    padding-left: 0;
+                    &.numDirPopulation{
+                      font-size: 15px;
+                      font-weight: bold;
+                    }
+				    
+				    .title{
+					    margin-right: 20px;
+					    text-align: right;
+					    width: 200px;
+					    display: inline-block;
+				    }
+
+			    }
+		    }
+            form{
+              &.nameForm{
+                width: 220px;
+              }
+            }
+		    .playAgain{
+                display: block;
+			    font-weight: bold;
+                margin: 0 auto;
+                margin-top: 8px;
+		    }
+	    }
+    }
+    .splash {
+      $width: 220px;
+      $height: 220px;
+
+      width: $width;
+      height: $height;
+      background: rgba(255, 255, 255, 0.4);
+      color: #FFF;
+      @include borderRadius(200px);
+      @include boxShadow(0, 4px, 8px, 0, rgba(0, 0, 0, 0.4));
+      text-align: center;
+      padding: 40px;
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -($width /2);
+      margin-top: -($height /2);
+
+      h1 {
+        font-weight: 40px;
+        margin: 0;
+        margin-top: 50px;
+        padding: 0;
+        text-transform: uppercase;
+
+      }
+    }
+
+    .dg{
+      &.a{
+        opacity: 0.8;
+      }
+      &.ac{
+        z-index: 10;
+      }
+      select {
+        width: auto;
+      }
+    }
+
+    #sidebar{
+      @include boxShadow(0, 0, 25px, 0, rgba(0,0,0,0.7));
+      position: absolute;
+      right: 0;
+      width: 340px;
+      top: 0;
+      bottom: 0;
+      display: block;
+      z-index: 999;
+      background-color: #FCFDFF;
+      color: #444;
+
+      header{
+        text-align: center;
+      }
+
+      .inner{
+        position: relative;
+        height: 100%;
+        overflow: auto;
+
+        .highscores{
+          ul{
+            list-style: none;
+            margin: 0;
+
+            li{
+              position: relative;
+              font-size: 12px;
+              overflow: auto;
+              width: auto;
+              padding: 13px;
+              border-bottom: 1px solid #f0eff4;
+              border-top: 1px solid white;
+              background-color: #fbfdff;
+              zoom: 1;
+
+              .player{
+                margin-right: 10px;
+              }
+
+              .value{
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
